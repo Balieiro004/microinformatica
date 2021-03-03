@@ -1,0 +1,39 @@
+<body>
+    <h1>Exemplo 04</h1>
+    <p>Aula 02/03/2021</p>
+
+    <form id="formulario">
+        <input id="campo1" type="number" placeholder="Preço base do produto">
+        <input id="campo2" type="number" placeholder="Percentual de desconto">
+        <button>Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function exemplo(event){
+            event.preventDefault(); //previne seu comportamento
+            
+            let price = parseFloat(campo1.value);
+            let discount = parseFloat(campo2.value);
+            
+            if (isNaN(price)) {
+                resultado.innerHTML = '<p>Informe um preço valido.</p>'
+                return //termina função
+            }
+
+            let amountDiscounted = price * discount / 100;
+            let finalPrice = price - amountDiscounted;
+        
+            resultado.innerHTML = `
+            <ul>
+                <li>Preço base: ${price}</li>
+                <li>Desconto: ${discount}</li>
+                <li>Preço Final: ${finalPrice}</li>
+            </ul>`
+        }
+
+        formulario.addEventListener('submit', exemplo);
+    </script>
+</body>
+</html>

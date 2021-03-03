@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!--- Criar uma página que solicita ao usuário um número com o preço de um produto e outro número com o 
+        percentual de desconto a aplica. Calcule o valor final do produto a partir do percentual de desconto 
+        e exiba como resultado. Não sabe como calcular? Pesquisa "cálculo de desconto de preço" no Google. O 
+        segredo deste tipo de exercício não está no cálculo, é fácil achar no Google, o segredo é entender o 
+        cálculo e transformar em uma linha de código JavaScript válida.
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let valorProduto = parseFloat(prompt("Valor do Produto: "));
+        let desconto = parseFloat(prompt("Desconto: "));
+        /*let descontoTotal = 100;
+        let percentual = 0;
+        percentual = (descontoTotal - parseFloat(desconto)) / 100;//achando o percentual de desconto
+        let valorFinal = valorProduto * percentual;
+        */
+        let valorDesconto = valorProduto * desconto / 100;
+        let valorFinal = valorProduto - valorDesconto;
+        document.write(`Valor do produto: R$ ${valorProduto} </br>
+                        Desconto: ${valorDesconto}</br>
+                        Valor a ser pago: ${valorFinal}</br>`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!--- Criar uma página que solicita dois números para o usuário e exibe como resultado as quatro 
+        operações aritméticas básicas entre os dois números: soma, subtração, multiplicação e divisão.
+     -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <script type="text/javascript" src="main.js"></script> -->
+    <title>Exercício proposto 1</title>
+</head>
+<body>
+    <h2>Operações Matemáticas</h2>
+    <script>
+        let n1 = parseFloat(prompt ("Número 1: "));
+        let n2 = parseFloat(prompt ("Número 2: "));
+
+        let soma = (n1) + (n2);
+        let subtracao = (n1) - (n2);
+        let multiplicacao = (n1) * (n2);
+        let divisao = (n1) / (n2);
+
+        document.write(`<ul>
+                        <li><b>Soma:</b> <u>${n1} + ${n2} = ${soma} </u><br>
+                        <li><b>Subtração:</b> <u>${n1} - ${n2} = ${subtracao} </u><br>
+                        <li><b>Multiplicação:</b><u>${n1} x ${n2} = ${multiplicacao} </u><br>
+                        <li><b>Divisão: </b><u>${n1} / ${n2} = ${divisao}</u><br>
+                        </ul>`);
+        </script>
+</body>
+</html>
