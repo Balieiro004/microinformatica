@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerício 04</title>
+</head>
+<body>
+    <h1>Operações Matemáticas</h1>
+    <p>Informe os valores</p>
+
+    <form id="formulario">
+        <input type="number" placeholder="Número 1" id="field1">
+        <input type="number" placeholder="Número 2" id="field2">
+        <button>Calcular</button>
+    </form><!--formulario-->
+
+    <div id="resultado"></div><!--resultado-->
+    <script>
+
+        function operacoes(event){
+            event.preventDefault();
+
+            let n1 = parseFloat(field1.value);
+            let n2 = parseFloat(field2.value);
+
+            if(isNaN(n1) | isNaN(n2)){
+                resultado.innerHTML = `Tente novamente com um numero`;
+                return
+            }
+
+            let sum = n1 + n2;
+            let subtraction = n1 - n2;
+            let division = n1 / n2;
+            let multiplication = n1 * n2;
+
+            resultado.innerHTML = `
+                <ul>
+                    <li>${n1} + ${n2} = ${sum}</br></li>
+                    <li>${n1} - ${n2} = ${subtraction}</br></li>
+                    <li>${n1} * ${n2} = ${multiplication}</br></li>
+                    <li>${n1} / ${n2} = ${division}</br></li>
+                </ul>
+                `
+        }
+        formulario.addEventListener('submit', operacoes);
+    </script>
+</body>
+</html>
