@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Achando as raizes de Bhaskara</h1>
+    <p>Informe os valores</p>   
+
+    <form id="formulario">
+        <input id="field1" type="number" placeholder="Variavel A">
+        <input id="field2" type="number" placeholder="Variavel B">
+        <input id="field3" type="number" placeholder="Variavel C">
+        <button>Calcular</button>
+    </form><!--formulario-->
+
+    <div id="resultado"></div>
+    <script>
+        function Bhaskara(event){
+            event.preventDefault();
+
+            let a = parseFloat(field1.value);
+            let b = parseFloat(field2.value);
+            let c = parseFloat(field3.value);
+
+            if(isNaN(a)){
+                resultado.innerHTML = `Por favor informe um valor para A`
+                return
+            }else if(isNaN(b)){
+                resultado.innerHTML =  `Por favor informe um valor para B`
+                return
+            }else if(isNaN(c)){
+                resultado.innerHTML = `Por favor informe um valor para C`
+                return
+            }
+                   
+            let delta = Math.pow(b, 2) - 4 * a * c;
+
+            if(delta < 0){
+                resultado.innerHTML = `${delta} Delta não tem Raiz `;
+                return
+            }
+
+            let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+            resultado.innerHTML = `
+                <ul>
+                    <li>Delta = ${delta}</li></br>
+                    <li>X1 = ${x1}</li></br>
+                    <li>X2 = ${x2}</li></br>
+                </ul>`
+        }
+
+        formulario.addEventListener('submit', Bhaskara);
+    </script>
+</body>
+</html>
