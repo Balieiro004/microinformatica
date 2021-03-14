@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima</title>
+</head>
+<body>
+    <h2>Clima</h2>
+
+    <label for="clima">Selecione o clima de hoje: </label>
+    <select id="clima">
+        <option value="">--Faça uma Escolha--</option>
+        <option value="verao">Verão</option>
+        <option value="chuva">Chuva</option>
+        <option value="inferno">Inferno</option>
+        <option value="nublada">Nublada</option>
+    </select><!--tempo-->
+    <p></p>
+
+    <script>
+        let select = document.querySelector('select');
+        let para = document.querySelector('p');
+
+        select.addEventListener('change', setclima);
+
+        function setclima(){
+            let choice = select.value;
+
+            if (choice === 'verao'){
+                para.textContent = 'Boa escolha';
+                return;
+            }
+            if (choice === 'chuva'){
+                para.textContent = 'Bom pra ficar em casa';
+                return;
+            }
+            if (choice === 'inferno'){
+                para.textContent = 'Quem frio';
+                return;
+            }
+            if (choice === 'nublada'){
+                para.textContent = 'Parece que vai chover';
+                return;
+            }
+        }
+    </script>
+</body>
+</html>

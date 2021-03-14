@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex09-03-2</title>
+</head>
+<body>
+    <form id="identificador">
+        <input id="field1" type="text" placeholder="Nome:">
+        <select id="identificador02">
+            <option value="">--sexo--</option>
+            <option id="field2" value="Masculino">Masculino</option>
+            <option id="field3" value="Feminino">Feminino</option>
+        </select><!--identificador02-->
+        <button>Responder</button>
+    </form><!--identificador-->
+
+    <div id="resposta"></div>
+    
+
+    <script>
+        let select = document.querySelector('select');
+
+        function teste00(event){
+            event.preventDefault();
+            let choice = select.value;
+
+            let name = (field1.value);
+            let sex1 = (field2.value);
+            let sex2 = (field3.value);
+
+            if(choice === "Masculino"){
+                resposta.innerHTML = `
+                    Muito prazer ${name}, sexo ${sex1}
+                `
+                return;
+            }
+            if (choice === "Feminino"){
+                resposta.innerHTML = `
+                Muito prazer ${name}, sexo ${sex2}
+                `
+                return;
+            }
+        }
+    identificador.addEventListener('submit', teste00);
+    </script>
+</body>
+</html>
+

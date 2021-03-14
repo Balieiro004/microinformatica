@@ -36,7 +36,7 @@
                 resultado.innerHTML = `Por favor informe um valor para C`
                 return
             }
-                   
+
             let delta = Math.pow(b, 2) - 4 * a * c;
 
             if(delta < 0){
@@ -46,6 +46,12 @@
 
             let x1 = (-b + Math.sqrt(delta)) / (2 * a);
             let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+
+            if(isNaN(x1) | x2 === -Infinity){
+                resultado.innerHTML = `Imposivel calcular raizes, verifique os valores.`
+                return
+            }
 
             resultado.innerHTML = `
                 <ul>
