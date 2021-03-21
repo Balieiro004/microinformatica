@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 09</title>
+</head>
+<body>
+    <h2>Contagem do maior para o menor</h2>
+    
+    <form id="form">
+        <input type="number" placeholder="Numero maior" id="field1">
+        <input type="number" placeholder="Número menor" id="field2">
+        <button>Calcular</button>
+    </form><!--form-->
+
+    <div id="result"></div>
+
+    <script>
+        function calc(event){
+            event.preventDefault();
+
+            let n1 = parseFloat(field1.value);
+            let n2 = parseFloat(field2.value);
+
+            if(isNaN(n1)){
+                result.innerHTML = `<p>Informe um valor para o 1º valor</p>`
+                return;
+            }
+
+            if(isNaN(n2)){
+                result.innerHTML = `<p>Informe um valor para o 2º valor</p>`
+                return;
+            }
+
+            result.innerHTML = ``;
+
+            for(let i = n1; i > n2; i--){
+                result.innerHTML += `${i}, `
+            }
+            
+            result.innerHTML += `${n2}`;
+        }
+
+        form.addEventListener('submit', calc);
+    </script>
+</body>
+</html>
