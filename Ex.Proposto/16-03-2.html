@@ -22,8 +22,12 @@
 
             let n1 = parseFloat(field1.value);
 
+            field1.className = ''
+
             if(isNaN(n1)){
                 result.innerHTML = `Informe um número antes`;
+                field1.className = 'negative';
+                field1.focus();
                 return;
             }
             result.innerHTML = ` `;

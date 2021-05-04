@@ -10,8 +10,8 @@
     <h2>Contagem do maior para o menor</h2>
     
     <form id="form">
-        <input type="number" placeholder="Numero maior" id="field1">
-        <input type="number" placeholder="Número menor" id="field2">
+        <input type="number" placeholder="Numero 1" id="field1">
+        <input type="number" placeholder="Número 2" id="field2">
         <button>Calcular</button>
     </form><!--form-->
 
@@ -24,23 +24,40 @@
             let n1 = parseFloat(field1.value);
             let n2 = parseFloat(field2.value);
 
+            field1.className = ''
+            field2.className = ''
+
             if(isNaN(n1)){
                 result.innerHTML = `<p>Informe um valor para o 1º valor</p>`
+                field1.className = 'negative'
+                field1.focus();
                 return;
             }
 
             if(isNaN(n2)){
                 result.innerHTML = `<p>Informe um valor para o 2º valor</p>`
+                field1.className = 'negative'
+                field2.focus();
                 return;
+            }
+
+            let min = n1;
+            let max = n2;
+
+            // Verifica se o menor na verdade é o maior.
+            if(min > max){
+                //Inverte para ficar com menor e maior corretos.
+                min = n2;
+                max = n1;
             }
 
             result.innerHTML = ``;
 
-            for(let i = n1; i > n2; i--){
+            for(let i = max; i > min; i--){
                 result.innerHTML += `${i}, `
             }
             
-            result.innerHTML += `${n2}`;
+            result.innerHTML += `${min}`;
         }
 
         form.addEventListener('submit', calc);

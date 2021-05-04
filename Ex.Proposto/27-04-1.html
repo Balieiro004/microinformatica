@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Professor</title>
+</head>
+<body>
+    <h2>Cadastro</h2>
+    <form id="form">
+        <input id="field1" type="text" placeholder="Nome">
+        <input id="field2" type="text" placeholder="Sobrenome">
+        <input id="field3" type="text" placeholder="Graduação">
+        <select id="field4">
+            <option value="">--Opção--</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+        </select>
+        <button>Cadastrar</button>
+    </form>
+
+    <div id="showAll">
+        <button>Mostrar</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        let people = [];
+
+        function clearFields(){
+            result.innerHTML = field1.value = field2.value = field3.value = field4.value = '';
+            field1.focus();
+        }
+
+        function isValid(){
+            field3.className = field2.className = field3.className = field4.className = '';
+
+            if(!field1.value){
+                result.innerHTML = `<p>Informe um nome</p>`
+                field1.focus();
+                return false;
+            }
+
+            if(!field2.value){
+                result.innerHTML = '<p>Informe o sobrenome</p>'
+                field2.focus();
+                return false;
+            }
+
+            if(!field3.value){
+                result.innerHTML = '<p>Informe uma graduação</p>'
+                field3.focus();
+                return false;
+            }
+
+            if(!field4.value){
+                result.innerHTML = '<p>Selecione um genero</p>'
+                field4.focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        function onSubmit(event){
+            event.preventDefault();
+
+            if(!isValid()) return
+
+            let person = {
+                name: field1.value,
+                lastName: field2.value,
+                graduacao: field3.value,
+                gender: field4.value,
+            }
+
+            people.push(person);
+            clearFields();
+        
+        }
+        form.addEventListener('submit', onSubmit);
+
+        function onClick(event){
+            event.preventDefault();
+
+            field1.className = field2.className = field3.className = field4.className = '';
+
+            if(!people.length){
+                result.innerHTML = '<p>Nenhuma pessoa Cadastrada.</p>'
+                field1.focus();
+                return
+            }
+
+            let items = '';
+            for(let person of people){
+                items += `<li>${person.name} ${person.lastName}, ${person.graduacao}, ${person.gender}</li>`
+            }
+
+            result.innerHTML = `<ul>${items}</ul>`
+        }
+
+        showAll.addEventListener('click', onClick);
+    </script>
+</body>
+</html>
